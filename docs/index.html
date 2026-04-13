@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chorus</title>
+    <link rel="icon" type="image/png" href="./assets/chorus-icon.png">
+    <link rel="stylesheet" href="./shared/shared.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="shell-body web-pub-body pub-minimal-body">
+    <main class="pub-shell">
+        <header class="pub-header">
+            <div class="brand-wrap" aria-label="Chorus header">
+                <img class="brand-icon" src="./assets/chorus-icon.png" alt="">
+                <div class="brand-copy">
+                    <h1>Chorus</h1>
+                    <p id="version-note" class="brand-note" aria-live="polite"></p>
+                </div>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme">Dark</button>
+        </header>
+
+        <section class="pub-panel editor-panel" aria-label="Chorus source input">
+            <div class="editor-actions">
+                <button id="run" class="primary run-button" type="button">Run</button>
+            </div>
+            <div class="editor-shell">
+                <pre id="line-numbers" class="editor-line-numbers" aria-hidden="true">1</pre>
+                <div class="editor-code-pane">
+                    <pre id="highlight" class="editor-highlight" aria-hidden="true"></pre>
+                    <textarea id="source" class="editor-input" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Chorus source input"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <section class="pub-panel value-panel" aria-labelledby="value-heading">
+            <div class="section-head compact-head">
+                <h2 id="value-heading">Value</h2>
+            </div>
+            <pre id="value" class="result-box">(empty)</pre>
+        </section>
+
+        <section class="pub-panel output-panel" aria-labelledby="output-heading">
+            <div class="section-head compact-head">
+                <h2 id="output-heading">Output</h2>
+            </div>
+            <pre id="output" class="result-box">(empty)</pre>
+        </section>
+
+        <section class="status-line" aria-live="polite">
+            <span id="status-time" class="status-time">--:--:--</span>
+            <span id="status-text" class="status-text">Loading…</span>
+        </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+</body>
+</html>

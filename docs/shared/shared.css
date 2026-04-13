@@ -1,0 +1,221 @@
+@font-face {
+    font-family: "InterFallback";
+    src: local("Inter"), local("Segoe UI"), local("Helvetica Neue");
+}
+
+:root {
+    color-scheme: light;
+    --bg: #edf3f7;
+    --surface: #ffffff;
+    --surface-soft: #f5f9fc;
+    --border: #d9e6ef;
+    --border-strong: #b5cad8;
+    --text: #102331;
+    --muted: #567083;
+    --accent: #0f6ea5;
+    --accent-soft: #e8f4fb;
+    --success-soft: #ebf7ef;
+    --success-text: #1d6a38;
+    --warn-soft: #fff6de;
+    --warn-text: #8a6200;
+    --danger-soft: #fff0f0;
+    --danger-text: #9b2f2f;
+    --shadow: 0 18px 44px rgba(16, 35, 49, 0.08);
+    --radius-xl: 32px;
+    --radius-lg: 22px;
+    --radius-md: 16px;
+    --page-width: 1320px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: InterFallback, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #f7fbfe 0%, var(--bg) 44%, #e9f1f6 100%);
+    color: var(--text);
+}
+
+body.shell-body {
+    min-height: 100vh;
+}
+
+code,
+pre,
+textarea,
+select,
+button {
+    font-family: "JetBrains Mono", "SFMono-Regular", ui-monospace, monospace;
+}
+
+main.shell-main {
+    width: min(100%, var(--page-width));
+    margin: 0 auto;
+    padding: 30px 22px 40px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(217, 230, 239, 0.95);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(14px);
+}
+
+.eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+button,
+select,
+textarea {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+    color: var(--text);
+}
+
+button {
+    padding: 12px 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 120ms ease, border-color 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
+}
+
+button:hover:enabled {
+    transform: translateY(-1px);
+    border-color: #92adc1;
+    background: #f5f9fc;
+    box-shadow: 0 10px 18px rgba(15, 110, 165, 0.08);
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+button.primary {
+    background: linear-gradient(135deg, #0f6ea5 0%, #0e5b87 100%);
+    color: white;
+    border-color: #0e5b87;
+}
+
+button.primary:hover:enabled {
+    background: linear-gradient(135deg, #0f79b3 0%, #0f6ea5 100%);
+}
+
+select {
+    padding: 12px 14px;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 240px;
+    padding: 16px;
+    background: #fbfdff;
+    line-height: 1.6;
+    tab-size: 4;
+}
+
+pre {
+    margin: 0;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: #f8fbfd;
+    white-space: pre-wrap;
+    word-break: break-word;
+    line-height: 1.6;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.status-pill.good {
+    background: var(--success-soft);
+    color: var(--success-text);
+}
+
+.status-pill.warn {
+    background: var(--warn-soft);
+    color: var(--warn-text);
+}
+
+.status-pill.blocked {
+    background: var(--danger-soft);
+    color: var(--danger-text);
+}
+
+.state-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.state-grid div {
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface-soft);
+}
+
+.state-grid dt {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.state-grid dd {
+    margin: 8px 0 0;
+    font-weight: 700;
+}
+
+.panel-header h2,
+.panel-header h3,
+.panel-header p,
+.section-copy h2,
+.section-copy p,
+.output-block h3,
+.output-block p {
+    margin: 0;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.stack {
+    display: grid;
+    gap: 14px;
+}
+
+@media (max-width: 980px) {
+    main.shell-main {
+        padding: 22px 16px 28px;
+    }
+
+    .state-grid {
+        grid-template-columns: 1fr;
+    }
+}
